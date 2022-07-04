@@ -6,15 +6,16 @@ const $operator = document.querySelector('#operator');
 const $result = document.querySelector('#result');
 
 const onClickNumber = (event)=> {
-        if(operator){ //비어있지 않다
-            if(!numTwo){
-                $result.value = "";
-            } // 화면 지우고 나서 numTwo 넣기
-            numTwo += event.target.textContent;
-            console.log(event.target)
-        }else{ //비어있다
+        if(!operator){ //비어있다
             numOne += event.target.textContent;
+            $result.value += event.target.textContent;
+            return;
         }
+        //비어있지 않다
+        if(!numTwo){
+                $result.value = "";
+        } // 화면 지우고 나서 numTwo 넣기
+        numTwo += event.target.textContent;
         $result.value += event.target.textContent;
 } // 함수가 함수를 부름, 고차합수(high order function)
 
