@@ -7,6 +7,9 @@ const $result = document.querySelector('#result');
 
 const onClickNumber = (event)=> {
         if(operator){ //비어있지 않다
+            if(!numTwo){
+                $result.value = "";
+            } // 화면 지우고 나서 numTwo 넣기
             numTwo += event.target.textContent;
             console.log(event.target)
         }else{ //비어있다
@@ -40,8 +43,8 @@ const onClickOperator = (op) => () => {
 }
 
 document.querySelector('#plus').addEventListener('click', onClickOperator('+'))
-document.querySelector('#minus').addEventListener('click', ()=> {})
-document.querySelector('#divide').addEventListener('click', ()=> {})
-document.querySelector('#multiply').addEventListener('click', ()=> {})
+document.querySelector('#minus').addEventListener('click', onClickOperator('-'))
+document.querySelector('#divide').addEventListener('click', onClickOperator('*'))
+document.querySelector('#multiply').addEventListener('click', onClickOperator('/'))
 document.querySelector('#calculate').addEventListener('click', ()=> {})
 document.querySelector('#clear').addEventListener('click', ()=> {})
