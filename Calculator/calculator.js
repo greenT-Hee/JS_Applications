@@ -70,8 +70,8 @@ const onClickOperator = (op) => () => {
 
 document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
 document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
-document.querySelector('#divide').addEventListener('click', onClickOperator('*'));
-document.querySelector('#multiply').addEventListener('click', onClickOperator('/'));
+document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
+document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
 document.querySelector('#clear').addEventListener('click', ()=> {
     numOne = "";
     operator = "";
