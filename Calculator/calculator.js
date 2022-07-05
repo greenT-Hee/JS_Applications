@@ -35,17 +35,78 @@ document.querySelector('#num-9').addEventListener('click', onClickNumber);
 // 가상으로 브라우저가 a(event), 이것도 고차함수 
 
 const onClickOperator = (op) => () => {
+    if(numTwo) {
+        switch  (operator) {
+            case '+' : 
+            $result.value = parseInt(numOne) + parseInt(numTwo);
+            break;
+    
+            case '-' : 
+            $result.value = parseInt(numOne) - parseInt(numTwo);
+            break;
+    
+            case '*' :
+            $result.value = parseInt(numOne) * parseInt(numTwo);
+            break;
+    
+            case '/' : 
+            $result.value = parseInt(numOne) / parseInt(numTwo);
+            break;
+            
+            default:
+            break;
+        }
+        numOne = $result.value;
+        numTwo = '';
+    }
+
     if(numOne) {
         operator = op;
         $operator.value = op;
     }else{
-        alert("숫자를 먼저 입력하세요");
+        alert("숫자를 먼저 입력하세요1");
     }
 }
 
-document.querySelector('#plus').addEventListener('click', onClickOperator('+'))
-document.querySelector('#minus').addEventListener('click', onClickOperator('-'))
-document.querySelector('#divide').addEventListener('click', onClickOperator('*'))
-document.querySelector('#multiply').addEventListener('click', onClickOperator('/'))
-document.querySelector('#calculate').addEventListener('click', ()=> {})
-document.querySelector('#clear').addEventListener('click', ()=> {})
+document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
+document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
+document.querySelector('#divide').addEventListener('click', onClickOperator('*'));
+document.querySelector('#multiply').addEventListener('click', onClickOperator('/'));
+document.querySelector('#clear').addEventListener('click', ()=> {
+    numOne = "";
+    operator = "";
+    numTwo = "";
+    $operator.value = "";
+    $result.value = "";
+});
+document.querySelector('#calculate').addEventListener('click', ()=> {
+    if (numTwo) {
+        switch  (operator) {
+            case '+' : 
+            $result.value = parseInt(numOne) + parseInt(numTwo);
+            break;
+    
+            case '-' : 
+            $result.value = parseInt(numOne) - parseInt(numTwo);
+            break;
+    
+            case '*' :
+            $result.value = parseInt(numOne) * parseInt(numTwo);
+            break;
+    
+            case '/' : 
+            $result.value = parseInt(numOne) / parseInt(numTwo);
+            break;
+            
+            default:
+            break;
+        }
+        $operator.value ="";
+        numOne = $result.value;
+        operator = "";
+        numTwo = "";
+    }else {
+        alert("숫자를 먼저 입력하세요2")
+    }
+
+});
